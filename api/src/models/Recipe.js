@@ -30,6 +30,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.JSON), 
       allowNull: true,
     },
+    image: {
+      type: DataTypes.STRING
+    },
     createdInDb: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
