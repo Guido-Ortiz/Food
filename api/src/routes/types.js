@@ -37,21 +37,44 @@ const router = Router();
 const axios = require("axios") ;
 const { Diet } = require("../db.js");
 require('dotenv').config();
-const { API_KEY, API_KEY_1 } = process.env;
+const { API_KEY, API_KEY_1, API_KEY_2 } = process.env;
 
-
-
-
-router.get("/", async (req, resp) => {
+router.get("/", async (req, res) => {
         
-    try {
+    // try {
+    //     const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_1}&addRecipeInformation=true&number=100`);
+    //     const dietsApi = response.data?.results.map(e => e.diets);
+    //     //console.log(dietsApi)
+    //     const flatDiets = dietsApi.flat().concat("vegetarian", "ketogenic", "lacto-vegetarian", "whole30");
+    //     const allDiets = [...new Set(flatDiets)];
+        
+
+    //     allDiets.forEach( e => {
+    //         Diet.findOrCreate({
+    //             where: {
+    //                 name: e
+    //             }
+    //         });
+    //     });
+
+    //     const dietsDb = await Diet.findAll();
+    
+    //     resp.send(dietsDb);
+    
+    // } catch(e) {
+    //     console.log(e)
+    // }
+
+    const diets = await Diet.findAll()
+    //console.log(diets)
+    if(!diets.length){
+        try {
         const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_1}&addRecipeInformation=true&number=100`);
         const dietsApi = response.data?.results.map(e => e.diets);
-        //console.log(dietsApi)
-        const flatDiets = dietsApi.flat().concat("vegetarian", "ketogenic", "lacto-vegetarian", "whole30");
+        
+        const flatDiets = dietsApi.flat().concat("vegetarian", "ketogenic", "lacto-vegetarian", "whole 30");
         const allDiets = [...new Set(flatDiets)];
         
-
         allDiets.forEach( e => {
             Diet.findOrCreate({
                 where: {
@@ -60,13 +83,16 @@ router.get("/", async (req, resp) => {
             });
         });
 
-        const dietsDb = await Diet.findAll();
+        res.send(allDiets)
     
-        resp.send(dietsDb);
-    
-    } catch(e) {
-        console.log(e)
+        } catch(e) {
+            console.log(e)
+        }
     }
+    else{
+        res.send(diets)
+    }
+
 });
 
 
