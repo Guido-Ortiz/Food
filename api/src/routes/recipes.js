@@ -2,7 +2,9 @@ const { Router } = require("express");
 const axios = require("axios");
 const { Op } = require("sequelize");
 const { Recipe, Diet } = require("../db");
+const recipeDb = require("./utils/recipeDb");
 const { API_KEY,  API_KEY_1, API_KEY_2} = process.env;
+
 const router = Router();
 
 router.get('/', async (req, res) => {
@@ -139,19 +141,5 @@ router.get('/:id', async (req, res) => {
         })
     }
 })
-
-async function recipeDb(id){
-    try{
-        return await Recipe.findByPk(id, {
-            include: {
-                model: Diet,
-                attributes: ['id', 'name'],
-                through: {attributes: []}
-            }
-        })
-    } catch(e){
-        console.log(e)
-    }
-}
 
 module.exports = router;
