@@ -1,9 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+import Recipes from '../Recipes/Recipes';
+import Title from '../Title/Title';
 
 function Home() {
+
     return (
         <div>
-            <h2>mi home con todas las recetas</h2>
+            <Title />
+            <Link to='/form'>
+                <button>Create new recipe</button>
+            </Link>
+            <div>
+                <Navbar />
+            </div>
+            <Recipes />
         </div>
     );
 }

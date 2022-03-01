@@ -1,3 +1,5 @@
+import { GET_RECIPES } from "../actions/constants";
+
 const initialState = {
     recipes: [],
     allRecipes: [],
@@ -6,9 +8,13 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        // case value:
-            
-        //     break;
+        case GET_RECIPES:
+            return{
+                ...state,
+                recipes: action.payload,
+                allRecipes: action.payload
+            }
+            break;
     
         default:
             return state
