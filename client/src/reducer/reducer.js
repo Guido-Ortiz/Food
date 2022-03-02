@@ -1,9 +1,9 @@
-import { GET_RECIPES } from "../actions/constants";
+import { GET_DETAIL, GET_RECIPES, RESET_DETAIL } from "../actions/constants";
 
 const initialState = {
     recipes: [],
     allRecipes: [],
-    details: null
+    detail: null
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -14,11 +14,23 @@ const rootReducer = (state = initialState, action) => {
                 recipes: action.payload,
                 allRecipes: action.payload
             }
-            break;
+            //break;
+
+        case GET_DETAIL:
+            return{
+                ...state,
+                detail: action.payload
+            }
+
+        case RESET_DETAIL:
+            return{
+                ...state,
+                detail: null
+            }
     
         default:
             return state
-            break;
+            //break;
     }
 }
 export default rootReducer
