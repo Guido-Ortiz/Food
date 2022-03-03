@@ -1,4 +1,4 @@
-const { Recipe } = require("../../db");
+const { Recipe, Diet } = require("../../db");
 
 let recipeDb = async function(id){
     try{

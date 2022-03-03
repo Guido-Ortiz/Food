@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_DETAIL, GET_RECIPES, RESET_DETAIL } from './constants';
+import { FILTER_ORIGIN, GET_DETAIL, GET_RECIPES, ORDER_SCORE, RESET_DETAIL } from './constants';
 
 export function getRecipes(){
     return async function(dispatch){
@@ -32,5 +32,19 @@ export function getDetail(id){
 export function resetDetail(){
     return{
         type: RESET_DETAIL
+    }
+}
+
+export function filterOrigin(payload){
+    return{
+        type: FILTER_ORIGIN,
+        payload
+    }
+}
+
+export function orderScore(payload){
+    return{
+        type: ORDER_SCORE,
+        payload
     }
 }

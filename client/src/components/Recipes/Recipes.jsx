@@ -19,13 +19,14 @@ function Recipes() {
         return(
             <div>
                 { 
-                    allRecipes.map(r => {
+                    recipes.map(r => {
                         return (
                             <div>
                                 <Recipe id={r.id}
                                         name={r.name}
                                         image={r.image}
                                         diets={r.diets}
+                                        score={r.score}
                                         key={r.id} />
                             </div>
 
@@ -40,6 +41,14 @@ function Recipes() {
         return(
             <div>
                 <Loading />
+            </div>
+        )
+    }
+
+    if (recipes.length === 0 && allRecipes.length > 0) {
+        return(
+            <div>
+                <p>Sorry! No matches found...</p>
             </div>
         )
     }
