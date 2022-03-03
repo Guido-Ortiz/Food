@@ -1,10 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { filterOrigin, orderScore } from '../../actions/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterDiet, filterOrigin, orderName, orderScore } from '../../actions/actions';
 
 function Select() { 
 
     const dispatch = useDispatch()
+
+    const diets = useSelector(state => state.diets)
+    console.log(diets)
 
     const handleOrigin = (e) => {
         e.preventDefault()
@@ -14,6 +17,16 @@ function Select() {
     const handleScore = (e) => {
         e.preventDefault()
         dispatch(orderScore(e.target.value))
+    }
+
+    const handleName = (e) => {
+        e.preventDefault()
+        dispatch(orderName(e.target.value))
+    }
+
+    const handleDiets = (e) => {
+        e.preventDefault()
+        dispatch(filterDiet(e.target.value))
     }
 
     return (
@@ -28,12 +41,33 @@ function Select() {
             </div>
 
             <div>
+                <label>Diets: </label>
+                <select onChange={e => handleDiets(e)}>
+                    <option value='all'>All</option>
+                    {   
+                        diets.map(d => (
+                            <option value={d.name}>{d.name}</option>
+                        ))
+                    }
+                </select>
+            </div>
+
+            <div>
                 <label>Score: </label>
-                    <select onChange={e => handleScore(e)}>
-                        <option value='none'>None</option>
-                        <option value='score_des'>++</option>
-                        <option value='score_asc'>--</option>
-                    </select>
+                <select onChange={e => handleScore(e)}>
+                    <option value='none'>None</option>
+                    <option value='score_des'>++</option>
+                    <option value='score_asc'>--</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Name: </label>
+                <select onChange={e => handleName(e)}>
+                    <option value='none'>None</option>
+                    <option value='az'>A-Z</option>
+                    <option value='za'>Z-A</option>
+                </select>
             </div>
         </div>
     );

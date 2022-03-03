@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes } from '../../actions/actions';
+import { getDiets, getRecipes } from '../../actions/actions';
 import Loading from '../Loading/Loading';
 import Recipe from '../Recipe/Recipe';
 
@@ -12,6 +12,7 @@ function Recipes() {
     //console.log(allRecipes)
 
     useEffect(() => {
+        dispatch(getDiets())
         dispatch(getRecipes())
     }, [dispatch])
 
