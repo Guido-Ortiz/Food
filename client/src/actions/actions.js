@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FILTER_DIET, FILTER_ORIGIN, GET_DETAIL, GET_DIETS, GET_RECIPES, ORDER_NAME, ORDER_SCORE, RESET_DETAIL } from './constants';
+import { FILTER_DIET, FILTER_ORIGIN, GET_DETAIL, GET_DIETS, GET_RECIPES, GET_RECIPE_NAME, ORDER_NAME, ORDER_SCORE, RESET_DETAIL } from './constants';
 
 export function getRecipes(){
     return async function(dispatch){
@@ -46,6 +46,20 @@ export function getDetail(id){
 export function resetDetail(){
     return{
         type: RESET_DETAIL
+    }
+}
+
+export function getRecipeName(name){
+    return async function(dispatch){
+        try{
+            var response = await axios.get(`http://localhost:3001/recipes?name=${name}`)
+            return dispatch({
+                type: GET_RECIPE_NAME,
+                payload: response.data // lo que devuelve la ruta de arriba
+            })
+        } catch(e){
+            console.log(e)
+        }
     }
 }
 

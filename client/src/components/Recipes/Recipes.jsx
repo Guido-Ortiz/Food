@@ -19,7 +19,10 @@ function Recipes() {
     if (recipes.length > 0) {
         return(
             <div>
-                { 
+                <div>
+                    <p>Recipes found:{recipes.length}</p>
+                </div>
+                {
                     recipes.map(r => {
                         return (
                             <div>

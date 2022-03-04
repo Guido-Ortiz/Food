@@ -1,4 +1,4 @@
-import { FILTER_DIET, FILTER_ORIGIN, GET_DETAIL, GET_DIETS, GET_RECIPES, ORDER_NAME, ORDER_SCORE, RESET_DETAIL } from "../actions/constants";
+import { FILTER_DIET, FILTER_ORIGIN, GET_DETAIL, GET_DIETS, GET_RECIPES, GET_RECIPE_NAME, ORDER_NAME, ORDER_SCORE, RESET_DETAIL } from "../actions/constants";
 
 const initialState = {
     recipes: [],
@@ -33,6 +33,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 detail: null
+            }
+
+        case GET_RECIPE_NAME:
+            return{
+                ...state,
+                recipes: action.payload
             }
 
         case FILTER_ORIGIN:
