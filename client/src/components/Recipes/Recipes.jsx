@@ -4,11 +4,11 @@ import { getDiets, getRecipes } from '../../actions/actions';
 import Loading from '../Loading/Loading';
 import Recipe from '../Recipe/Recipe';
 
-function Recipes() {
+function Recipes({ recipes }) {
 
     const dispatch = useDispatch()
     const allRecipes = useSelector(state => state.allRecipes)
-    const recipes = useSelector(state => state.recipes)
+    //const recipes = useSelector(state => state.recipes)
     //console.log(allRecipes)
 
     useEffect(() => {
