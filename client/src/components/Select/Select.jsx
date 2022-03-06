@@ -2,31 +2,34 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterDiet, filterOrigin, orderName, orderScore } from '../../actions/actions';
 
-function Select() { 
+function Select({ setCurrentPage }) { 
 
     const dispatch = useDispatch()
 
     const diets = useSelector(state => state.diets)
-    console.log(diets)
 
     const handleOrigin = (e) => {
         e.preventDefault()
         dispatch(filterOrigin(e.target.value))
+        setCurrentPage(1)
     }
 
     const handleScore = (e) => {
         e.preventDefault()
         dispatch(orderScore(e.target.value))
+        setCurrentPage(1)
     }
 
     const handleName = (e) => {
         e.preventDefault()
         dispatch(orderName(e.target.value))
+        setCurrentPage(1)
     }
 
     const handleDiets = (e) => {
         e.preventDefault()
         dispatch(filterDiet(e.target.value))
+        setCurrentPage(1)
     }
 
     return (

@@ -9,7 +9,7 @@ function Recipes({ recipes }) {
     const dispatch = useDispatch()
     const allRecipes = useSelector(state => state.allRecipes)
     //const recipes = useSelector(state => state.recipes)
-    //console.log(allRecipes)
+    
 
     useEffect(() => {
         dispatch(getDiets())
@@ -20,18 +20,17 @@ function Recipes({ recipes }) {
         return(
             <div>
                 <div>
-                    <p>Recipes found:{recipes.length}</p>
+                    <p>{recipes.length} recipes found out of {allRecipes.length}</p>
                 </div>
                 {
                     recipes.map(r => {
                         return (
-                            <div>
+                            <div key={r.id}>
                                 <Recipe id={r.id}
                                         name={r.name}
                                         image={r.image}
                                         diets={r.diets}
-                                        score={r.score}
-                                        key={r.id} />
+                                        score={r.score} />
                             </div>
 
                         )

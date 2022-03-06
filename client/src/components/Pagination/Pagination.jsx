@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Pagination({ recipesPerPage, allRecipes, paginate }) {
+function Pagination({ recipesPerPage, recipes, paginate }) {
 
     const pageNumber = []
 
-    for(var i = 1; i <= Math.ceil(allRecipes/recipesPerPage); i++){
+    for(var i = 1; i <= Math.ceil(recipes/recipesPerPage); i++){
         pageNumber.push(i)
     }
 
