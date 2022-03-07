@@ -1,0 +1,14 @@
+.title{
+    /* background-color: orange; */
+    /* border-radius: 1px solid orange;
+    color: orange; */
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+h1{
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 1px solid orange;
+}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import Select from '../Select/Select';
+import s from './Navbar.module.css';
 
 function Navbar({ setCurrentPage }) {
 
@@ -14,8 +16,13 @@ function Navbar({ setCurrentPage }) {
 
     return (
         <div>
-            <SearchBar />
-            <button onClick={e => handleClick(e)}>RESET</button>
+            <div className={s.wrapper}>
+                <Link to='/form'>
+                    <button className={s.btn}>Create new recipe</button>
+                </Link>
+                <SearchBar />
+                <button onClick={e => handleClick(e)} className={s.btn}>RESET</button>
+            </div>
             <Select setCurrentPage={setCurrentPage} />
         </div>
     )

@@ -1,8 +1,9 @@
 import React from 'react';
+import s from './Title.module.css';
 
 function Title() {
     return (
-        <div>
+        <div className={s.title}>
             <h1>Spoonacular</h1>
         </div>
     );

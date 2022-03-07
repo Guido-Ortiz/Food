@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar';
 import Pagination from '../Pagination/Pagination';
 import Recipes from '../Recipes/Recipes';
 import Title from '../Title/Title';
+import s from './Home.module.css';
 
 function Home() {
 
@@ -21,20 +22,21 @@ function Home() {
         setCurrentPage(pageNumber)
     }
     return (
-        <div>
+        <div className={s.home}>
             <Title />
-            <Link to='/form'>
-                <button>Create new recipe</button>
-            </Link>
+            
             <div>
                 <Navbar setCurrentPage={setCurrentPage} />
             </div>
+            
+            <Recipes recipes={currentRecipes}/>
+
             <div>
                 <Pagination recipesPerPage={recipesPerPage}
                             recipes={recipes.length}
                             paginate={paginate}/>
             </div>
-            <Recipes recipes={currentRecipes}/>
+            
         </div>
     );
 }

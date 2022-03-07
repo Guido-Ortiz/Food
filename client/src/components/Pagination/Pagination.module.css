@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: #f4f6f4;
+    /* background-color: white; */
 }
 
 .lista{
@@ -10,4 +12,15 @@
 
 .btn{
     margin: 10px;
+    border: 1px solid orange;
+    background-color: white;
+    padding: 5px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav{
+    background-color: #f4f6f4;
 }
