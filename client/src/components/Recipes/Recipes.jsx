@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDiets, getRecipes } from '../../actions/actions';
 import Loading from '../Loading/Loading';
 import Recipe from '../Recipe/Recipe';
+import s from './Recipes.module.css';
 
 function Recipes({ recipes }) {
 
@@ -18,10 +19,7 @@ function Recipes({ recipes }) {
 
     if (recipes.length > 0) {
         return(
-            <div>
-                <div>
-                    <p>{recipes.length} recipes found out of {allRecipes.length}</p>
-                </div>
+            <div className={s.recipes}>
                 {
                     recipes.map(r => {
                         return (

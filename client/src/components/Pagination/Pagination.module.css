@@ -1,0 +1,13 @@
+.paginado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lista{
+    list-style: none;
+}
+
+.btn{
+    margin: 10px;
+}

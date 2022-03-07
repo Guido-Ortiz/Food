@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import s from './Recipe.module.css';
 
 function Recipe({ id, name, image, diets, score }) {
     return (
-        <div>
+        <div className={s.recipe}>
             <h3>{name}</h3>
             <h5>{score}</h5>
             <h5>{

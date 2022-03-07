@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './Pagination.module.css'
 
 function Pagination({ recipesPerPage, recipes, paginate }) {
 
@@ -10,11 +11,11 @@ function Pagination({ recipesPerPage, recipes, paginate }) {
 
     return (
         <nav>
-            <ul>
+            <ul className={s.paginado}>
                 {
                     pageNumber && pageNumber.map(n => (
-                        <li key={n}>
-                            <button onClick={() => paginate(n)}>{n}</button>
+                        <li key={n} className={s.lista}>
+                            <button className={s.btn} onClick={() => paginate(n)}>{n}</button>
                         </li> 
                     ))
                 }
