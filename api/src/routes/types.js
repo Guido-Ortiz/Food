@@ -69,7 +69,7 @@ router.get("/", async (req, res) => {
     //console.log(diets)
     if(!diets.length){
         try {
-        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_1}&addRecipeInformation=true&number=100`);
+        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
         const dietsApi = response.data?.results.map(e => e.diets);
         
         const flatDiets = dietsApi.flat().concat("vegetarian", "ketogenic", "lacto-vegetarian", "whole 30");

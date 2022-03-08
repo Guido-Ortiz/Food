@@ -1,4 +1,4 @@
-import { FILTER_DIET, FILTER_ORIGIN, GET_DETAIL, GET_DIETS, GET_RECIPES, GET_RECIPE_NAME, ORDER_NAME, ORDER_SCORE, RESET_DETAIL } from "../actions/constants";
+import { CREATE_RECIPE, FILTER_DIET, FILTER_ORIGIN, GET_DETAIL, GET_DIETS, GET_RECIPES, GET_RECIPE_NAME, ORDER_NAME, ORDER_SCORE, RESET_DETAIL } from "../actions/constants";
 
 const initialState = {
     recipes: [],
@@ -139,6 +139,11 @@ const rootReducer = (state = initialState, action) => {
                         return 0
                     })
                 }
+            }
+
+        case CREATE_RECIPE:
+            return{
+                ...state
             }
 
 

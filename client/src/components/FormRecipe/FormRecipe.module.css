@@ -1,0 +1,60 @@
+.flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f4f6f4; 
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid orange;
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 70px;
+}
+
+.img{
+    width: 240px;
+    height: 230px;
+    /* margin-left: 180px; */
+}
+
+.btn{
+    border: 1px solid orange;
+    /* border: none; */
+    border-radius: 5px;
+    background-color: white;
+    padding: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.inputs{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.label{
+    margin-right: 10px;
+}
+
+.textarea{
+    width: 250px;
+    height: 50px;
+}
+
+.input{
+    width: 250px;
+}
+
+.mosaico{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
