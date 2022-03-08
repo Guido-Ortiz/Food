@@ -23,9 +23,9 @@ function FormRecipe() {
         summary: '',
         score: '',
         healthScore: '',
-        steps: '',
+        analyzedInstructions: [],
         diets: [],
-        image: ''
+        image: '',
     })
 
     console.log(diets)
@@ -44,6 +44,14 @@ function FormRecipe() {
         //     ...form,
         //     [e.target.name]: e.target.value
         // }))
+    }
+
+    function handleInstructions(e){
+        setInput({
+            ...input,
+            analyzedInstructions: [e.target.value]
+
+        })
     }
 
     function handleDiets(e) {
@@ -67,8 +75,9 @@ function FormRecipe() {
             summary: '',
             score: '',
             healthScore: '',
-            steps: '',
-            diets: [] 
+            analyzedInstructions: [],
+            diets: [],
+            image: '',
         })
         history.push('/home')
     }
@@ -98,8 +107,12 @@ function FormRecipe() {
                         </div>
                         <div className={s.inputs}>
                             <label className={s.label}>Steps:</label>
-                            <textarea type='text' value={input.steps} name='steps' className={s.textarea} onChange={e => handleChange(e)} placeholder='Insert your recipe steps...'/>
+                            <textarea type='text' value={input.analyzedInstructions} name='analyzedInstructions' className={s.textarea} onChange={e => handleInstructions(e)} placeholder='Insert your recipe steps...'/>
                         </div>
+                        {/* <div className={s.inputs}>
+                            <label className={s.label}>Instructions:</label>
+                            <textarea type='text' value={input.instructions} name='instructions' className={s.textarea} onChange={e => handleChange(e)} placeholder='Insert your instructions...'/>
+                        </div> */}
                         <div className={s.inputs}>
                             <label className={s.label}>Diets:</label>
                             <select onChange={e => handleDiets(e)}>
