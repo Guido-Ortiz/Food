@@ -10,6 +10,8 @@ import image3 from './assets/image3.jpg';
 import image4 from './assets/image4.jpg';
 import image5 from './assets/image5.jpg';
 import image6 from './assets/image6.jpg';
+import validate from './utils/validate';
+
 
 function FormRecipe() {
 
@@ -28,7 +30,7 @@ function FormRecipe() {
         image: '',
     })
 
-    console.log(diets)
+    const [errors, setErrors] = useState({})
 
     useEffect(() => {
         dispatch(getDiets())
@@ -40,10 +42,10 @@ function FormRecipe() {
             ...input,
             [e.target.name]: e.target.value
         })
-        // setErrors(validate({
-        //     ...form,
-        //     [e.target.name]: e.target.value
-        // }))
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
     }
 
     function handleInstructions(e){
@@ -52,18 +54,27 @@ function FormRecipe() {
             analyzedInstructions: [e.target.value]
 
         })
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
     }
 
     function handleDiets(e) {
-        setInput({
-            ...input,
-            diets: [...input.diets, e.target.value]
-
-        })
-        // setErrors(validate({
-        //     ...form,
-        //     [e.target.name]: e.target.value
-        // }))
+        if(!input.diets.includes(e.target.value)){
+            setInput({
+                ...input,
+                diets: [...input.diets, e.target.value]
+    
+            })
+            setErrors(validate({
+                ...input,
+                [e.target.name]: e.target.value
+            }))
+        }
+        else{
+            alert('Diet already selected!')
+        }
     }
 
     const handleSubmit = (e) => {
@@ -92,27 +103,39 @@ function FormRecipe() {
                         <div className={s.inputs}>
                             <label className={s.label}>Name:</label>
                             <input type='text' value={input.name} name='name' onChange={e => handleChange(e)} className={s.input} placeholder='Insert your recipe name...'/>
+                            {
+                                errors.name && <p>{errors.name}</p>
+                            }
                         </div>
                         <div className={s.inputs}>
                             <label className={s.label}>Summary:</label>
                             <textarea type='text' value={input.summary} name='summary' className={s.textarea} onChange={e => handleChange(e)} placeholder='Insert your recipe summary...'/>
+                            {
+                                errors.summary && <p>{errors.summary}</p>
+                            }
                         </div>
                         <div className={s.inputs}>
                             <label className={s.label}>Score:</label>
                             <input type='number' value={input.score} name='score' onChange={e => handleChange(e)} className={s.input} placeholder='Insert your recipe punctuation...'/>
+                            {
+                                errors.score && <p>{errors.score}</p>
+                            }
                         </div>
                         <div className={s.inputs}>
                             <label className={s.label}>Health score:</label>
                             <input type='number' value={input.healthScore} name='healthScore' onChange={e => handleChange(e)} className={s.input} placeholder='Insert your recipe health score...'/>
+                            {
+                                errors.healthScore && <p>{errors.healthScore}</p>
+                            }
                         </div>
                         <div className={s.inputs}>
                             <label className={s.label}>Steps:</label>
                             <textarea type='text' value={input.analyzedInstructions} name='analyzedInstructions' className={s.textarea} onChange={e => handleInstructions(e)} placeholder='Insert your recipe steps...'/>
+                            {
+                                errors.steps && <p>{errors.steps}</p>
+                            }
                         </div>
-                        {/* <div className={s.inputs}>
-                            <label className={s.label}>Instructions:</label>
-                            <textarea type='text' value={input.instructions} name='instructions' className={s.textarea} onChange={e => handleChange(e)} placeholder='Insert your instructions...'/>
-                        </div> */}
+                        
                         <div className={s.inputs}>
                             <label className={s.label}>Diets:</label>
                             <select onChange={e => handleDiets(e)}>
@@ -125,6 +148,9 @@ function FormRecipe() {
                                 }
                             </select>
                             {
+                                errors.diets && <p>{errors.diets}</p>
+                            }
+                            {
                                 input.diets.map(d => (
                                     <li>{d}</li>
                                 ))
@@ -133,6 +159,9 @@ function FormRecipe() {
                         <div className={s.inputs}>
                             <label className={s.label}>Image:</label>
                             <input type='text' value={input.image} name='image' onChange={e => handleChange(e)} className={s.input} placeholder='Insert image URL...'/>
+                            {
+                                errors.image && <p>{errors.image}</p>
+                            }
                         </div>
                         <button type='submit' className={s.btn}>CREATE</button>
                     </form>
@@ -155,3 +184,4 @@ function FormRecipe() {
 }
 
 export default FormRecipe;
+
