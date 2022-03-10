@@ -26,31 +26,53 @@ function Detail() {
             <Title />
             {
                 detail ? (
-                    <div>
-                        <h2>{detail.name}</h2>
-                        <p>{detail.summary.replace(/(<([^>]+)>)/ig, '')}</p> 
-                        <img src={detail.image} alt='img not found'/>
-                        <div>{detail.score}</div>
-                        <div>{detail.healthScore}</div>
-                        {
-                            detail.diets.map(d => {
-                                return(
-                                    <div>{d.name}</div>
-                                )
-                            })
+                    <div className={s.grid}>
+                        <div className={s.flex}>
+                            <h2>{detail.name}</h2>
+                            <div className={s.group}>
+                                <div className={s.description}>Summary</div>
+                                <p className={s.text}>{detail.summary.replace(/(<([^>]+)>)/ig, '')}</p>
+                            </div>
                             
-                        }
-                        {
-                            detail.analyzedInstructions && detail.analyzedInstructions.map(i => {
-                                return(
-                                    <div>{i}</div>
-                                )
-                            })
-                        }
+                            <div className={s.steps}>
+                                <div className={s.description}>Steps</div>
+                                {
+                                    detail.analyzedInstructions && detail.analyzedInstructions.map(i => {
+                                        return(
+                                            <p className={s.text}>{i}</p>
+                                        )
+                                    })
+                            }
+                            </div>
+                            
+                            <div className={s.steps}>
+                                <div className={s.description}>Diets</div>
+                                {
+                                    detail.diets.map(d => {
+                                        return(
+                                            <p className={s.list}>{d.name}</p>
+                                        )
+                                    })
+                                    
+                                }
+                                <Link to='/home'>
+                                    <button className={s.btn}>HOME</button>
+                                </Link>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div>
+                            <img src={detail.image} alt='img not found'/>
+                            <div>{detail.score}</div>
+                            <div>{detail.healthScore}</div>
+                        </div>
+                        
+                        
+                        
 
-                        <Link to='/home'>
-                            <button className={s.btn}>HOME</button>
-                        </Link>
+                        
                         
                     </div>
                 ) : <div>
