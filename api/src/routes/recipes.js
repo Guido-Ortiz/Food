@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
         if (!name) {
             // consulto a la api
-            const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_1}&number=100&addRecipeInformation=true`)
+            const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_2}&number=100&addRecipeInformation=true`)
             
             //console.log(response.data.results)
             const recipesApi = response.data?.results.map(e => {
@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
         else {
             // tengo name por query -- lo busco en la api y en la bd
             // consulto a la api
-            const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_1}&number=100&addRecipeInformation=true`)
+            const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_2}&number=100&addRecipeInformation=true`)
             
             //console.log(response.data.results)
             const recipesApi = response.data?.results.map(e => {
@@ -123,7 +123,7 @@ router.get('/:id', async (req, res) => {
     }
     else{
         // lo busco en la api
-        const response = await axios.get(` https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_1}`)
+        const response = await axios.get(` https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_2}`)
         //console.log(response)
         
         res.json({

@@ -21,23 +21,28 @@ function Home() {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
-    return (
-        <div className={s.home}>
-            <Title />
-            
-            <div>
-                <Navbar setCurrentPage={setCurrentPage} />
-            </div>
-            
-            <Recipes recipes={currentRecipes}/>
 
-            <div>
-                <Pagination recipesPerPage={recipesPerPage}
-                            recipes={recipes.length}
-                            paginate={paginate}/>
+    window.scrollTo(0, 0)
+
+    return (
+        <div>
+            <Title />
+            <div className={s.home}>
+                <div>
+                    <Navbar setCurrentPage={setCurrentPage} />
+                </div>
+                
+                <Recipes recipes={currentRecipes}/>
+
+                <div>
+                    <Pagination recipesPerPage={recipesPerPage}
+                                recipes={recipes.length}
+                                paginate={paginate}/>
             </div>
             
         </div>
+        </div>
+        
     );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterDiet, filterOrigin, orderName, orderScore } from '../../actions/actions';
 import s from './Select.module.css';
@@ -8,6 +8,8 @@ function Select({ setCurrentPage }) {
     const dispatch = useDispatch()
 
     const diets = useSelector(state => state.diets)
+
+    const [order, setOrder] = useState(''); //para setear los estados en los filtros
 
     const handleOrigin = (e) => {
         e.preventDefault()
@@ -19,12 +21,14 @@ function Select({ setCurrentPage }) {
         e.preventDefault()
         dispatch(orderScore(e.target.value))
         setCurrentPage(1)
+        setOrder(e.target.value);
     }
 
     const handleName = (e) => {
         e.preventDefault()
         dispatch(orderName(e.target.value))
         setCurrentPage(1)
+        setOrder(e.target.value);
     }
 
     const handleDiets = (e) => {

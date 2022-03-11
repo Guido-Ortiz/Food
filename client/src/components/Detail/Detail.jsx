@@ -28,7 +28,7 @@ function Detail() {
                 detail ? (
                     <div className={s.grid}>
                         <div className={s.flex}>
-                            <h2>{detail.name}</h2>
+                            <h2 className={s.name}>{detail.name}</h2>
                             <div className={s.group}>
                                 <div className={s.description}>Summary</div>
                                 <p className={s.text}>{detail.summary.replace(/(<([^>]+)>)/ig, '')}</p>
@@ -64,7 +64,7 @@ function Detail() {
                         </div>
                         
                         <div>
-                            <img src={detail.image} alt='img not found'/>
+                            <img src={detail.image} alt='img not found' className={s.img}/>
                             <div>{detail.score}</div>
                             <div>{detail.healthScore}</div>
                         </div>
