@@ -21,7 +21,7 @@ function Navbar({ setCurrentPage }) {
                     <button className={s.btn}>Create new recipe</button>
                 </Link>
                 <SearchBar />
-                <button onClick={e => handleClick(e)} className={s.btn}>RESET</button>
+                <button onClick={e => handleClick(e)} className={s.btnReset}>RESET</button>
             </div>
             <Select setCurrentPage={setCurrentPage} />
         </div>

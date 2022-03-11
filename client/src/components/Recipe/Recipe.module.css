@@ -1,33 +1,50 @@
 .recipe{
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center;
+    align-items: center;  
+    justify-content: space-between;
     border: 1px solid orange; 
     margin: 20px;
-    padding: 20px;
+    padding: 0 20px;
     width: 350px;
-    height: 470px;
+    height: 520px;
     background-color: white;
 } 
+
+.score{
+    margin-top: 5px;
+    margin-left: 310px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid orange;
+    color: orange;
+    background-color: #f4f6f4;
+    font-weight: bold;
+}
 
 .image{
     width: 100%;
     height: 70%;
-    height: 350px;
+    margin-top: 10px; 
+    max-height: 350px;
 }
 
 .name{
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .diets{
     text-transform: capitalize;
     letter-spacing: 0.5px;
     padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .btn{

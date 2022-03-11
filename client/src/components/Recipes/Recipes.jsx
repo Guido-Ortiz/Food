@@ -28,6 +28,7 @@ function Recipes({ recipes }) {
                                         name={r.name}
                                         image={r.image}
                                         diets={r.diets}
+                                        score={r.score}
                                          />
                             </div>
 

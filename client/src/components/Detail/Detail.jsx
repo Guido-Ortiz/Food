@@ -18,9 +18,6 @@ function Detail() {
         return () => dispatch(resetDetail())
     }, [dispatch])
 
-    
-    // let stripped = str.replace(/(<([^>]+)>)/ig, '')
-
     return(
         <div>
             <Title />
@@ -63,10 +60,18 @@ function Detail() {
                             
                         </div>
                         
-                        <div>
+                        <div className={s.rightInfo}>
                             <img src={detail.image} alt='img not found' className={s.img}/>
-                            <div>{detail.score}</div>
-                            <div>{detail.healthScore}</div>
+                            <div className={s.score}>
+                                <div className={s.items}>
+                                    <div className={s.description}>Score</div>
+                                    <p className={s.text}>{detail.score}</p>
+                                </div>
+                                <div className={s.items}>
+                                    <div className={s.description}>Health Score</div>
+                                    <p className={s.text}>{detail.healthScore}</p>
+                                </div>
+                            </div>
                         </div>
                         
                         
