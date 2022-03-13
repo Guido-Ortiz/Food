@@ -69,7 +69,7 @@ router.get("/", async (req, res) => {
     //console.log(diets)
     if(!diets.length){
         try {
-        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_2}&addRecipeInformation=true&number=100`);
+        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
         
         const dietsApi = response.data?.results.map(e => e.diets);
         
