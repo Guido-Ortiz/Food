@@ -17,10 +17,42 @@
 }
 
 .singleSelect{
-    margin-right: 20px;
-    padding: 5px;
+    /* margin-right: 20px;
+    padding: 5px; */
+    background-color: #f6f6f6;
+
+    font-weight: 700;
+
+
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    list-style: none;
+    min-height: 40px;
+    outline: 0;
+    padding-left: 18px;
+    padding-right: 29px;
+    text-align: left;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+
+
 }
 
 .label{
     margin-right: 5px;
+}
+
+.option{
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    list-style: none;
+    min-height: 40px;
+    outline: 0;
+    padding-left: 18px;
+    padding-right: 29px;
+    text-align: left;
+    -webkit-transition: all .2s;
+    transition: all .2s;
 }

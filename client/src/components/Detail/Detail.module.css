@@ -1,14 +1,3 @@
-.btn{
-    text-transform: uppercase;
-    background-color: orange;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding: 7px;
-    border: none;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-}
-
 .grid{
     display: flex;
     flex-direction: row;
@@ -19,13 +8,11 @@
 }
 
 .description{
-    color: orange;
-    font-style: italic;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    padding-top: 10px;
-    padding-bottom: 10px; 
-    margin-right: 10px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #000000;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .flex{
@@ -39,46 +26,60 @@
 .group{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 10px;
-    /* margin-top: 10px; */
     margin-bottom: 10px;
 }
 
 .text{
+    color: #9b9b9b;
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 400;
     letter-spacing: 0.5px;
-    padding: 0px; 
-    margin: 0px;
-    /* border: 1px solid; */
 }
 
 .steps{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 10px;
+    padding: 0 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-left: 3px solid #1c8314;
+    padding: 15px;
+    margin-bottom: 30px;
 }
 
 .list{
-    letter-spacing: 0.5px;
-    padding: 0px; 
-    margin: 0px;
+    display: flex;
+    flex-direction: row;
     text-transform: capitalize;
+    margin-left: 5px;
 }
 
 .img{
     margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 .name{
     /* color: orange; */
     letter-spacing: 1px;
+    font-size: 36px;
+    color: #474747;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .rightInfo{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 50px;
 }
 
 .score{
@@ -92,7 +93,60 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 10px;
     /* margin-top: 10px; */
     margin-bottom: 10px;
+    border-left: 3px solid #40ba37;
+    padding: 15px;
+}
+
+.diets{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.btn{
+    display: inline-block;
+    min-width: 160px;
+    height: 60px;
+    color: #ffffff;
+    border: none;
+    border-left: 3px solid #1c8314;
+    border-radius: 0;
+    padding: 0 30px;
+    font-size: 16px;
+    line-height: 58px;
+    font-weight: 600;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    text-transform: capitalize;
+    background-color: #40ba37;
+    margin-bottom: 30px;
+}
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-left: 3px solid #1c8314;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.number{
+    color: #474747;
+    flex: 0 0 60px;
+    max-width: 60px;
+    width: 60px;
+    margin-bottom: 0;
+    line-height: 1.3;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.stepsDescriptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }

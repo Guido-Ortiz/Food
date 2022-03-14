@@ -1,19 +1,33 @@
 .input{
-    width: 400px;
+    /* width: 400px;
     margin-right: 15px;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 4px;
-    border: 1px solid orange;
+    border: 1px solid orange; */
+    width: 400px;
+    height: 40px;
+    background-color: #f3f5f8;
+    font-size: 14px;
+    padding: 0 20px;
+    border: none;
+    letter-spacing: 0.5px;
+    margin-right: 20px;
 }
 
 .btn{
-    border: 1px solid orange;
-    border-radius: 5px;
-    background-color: white;
-    padding: 4px;
-    text-transform: uppercase;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    color: #ffffff;
+    border: none;
+    border-left: 3px solid #1c8314;
+    border-radius: 0;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 500ms;
+    text-transform: capitalize;
+    background-color: #40ba37;
     letter-spacing: 0.5px;
-    cursor: pointer;
-    font-weight: 300;
 }

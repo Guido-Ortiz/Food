@@ -43,7 +43,7 @@ function Select({ setCurrentPage }) {
                 <div className={s.singleSelect}>
                     <label className={s.label}>Origin: </label>
                     <select onChange={e => handleOrigin(e)}>
-                        <option value='all'>All</option>
+                        <option className={s.option} value='all'>All</option>
                         <option value='api'>API</option>
                         <option value='db'>DB</option>
                     </select>
