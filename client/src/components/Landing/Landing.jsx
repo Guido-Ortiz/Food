@@ -8,25 +8,7 @@ import image4 from './assets/image4.webp';
 
 function Landing() {
     return (
-        // <div className={s.grid}>
-        //     <div className={s.images}>
-        //         {/* <div>hola</div> */}
-        //         <img src={image1} alt='img not found' className={s.img}/>
-        //         <img src={image2} alt='img not found' className={s.img}/>
-        //         <img src={image3} alt='img not found' className={s.img}/>
-        //         <img src={image4} alt='img not found' className={s.img}/>
-        //     </div>
-        //     <div className={s.right}>
-        //         <div>
-        //             <h2>Spoonacular</h2>
-        //             <div>The best international recipes</div>
-        //             <Link to = '/home' style={{ textDecoration: 'none' }}>
-        //                 <button className={s.btn}>Get Started</button>
-        //             </Link>
-        //         </div>
-        //     </div>
-        // </div>
-
+    
         <div className={`${s.fondo} ${s.container}`}>
             <div className={s.flex}>
                 <h1 className={s.titulo}>Spoonacular</h1>
@@ -35,9 +17,6 @@ function Landing() {
                 </Link>
             </div>
         </div>
-        
-                
-        
         
     );
 }

@@ -4,12 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { createRecipe, getDiets, getRecipes } from '../../actions/actions';
 import Title from '../Title/Title';
 import s from './FormRecipe.module.css';
-import image from './assets/image.jpg';
-import image2 from './assets/image2.jpg';
-import image3 from './assets/image3.jpg';
-import image4 from './assets/image4.jpg';
-import image5 from './assets/image5.jpg';
-import image6 from './assets/image6.jpg';
 import validate from './utils/validate';
 
 
@@ -93,12 +87,22 @@ function FormRecipe() {
         history.push('/home')
     }
 
+    const handleDeleteDiet = diet => {
+        setInput({
+            ...input,
+            diets: input.diets.filter(d => d !== diet)
+        })
+    }
+
     return (
         <div>
             <Title />
+            <div className={s.overlay}>
+                <div className={s.textTitle}><div className={s.formTitle}>Recipe Form</div></div>
+            </div>
             <div className={s.flex}>
                 <div className={s.form}>
-                    <p>Complete this form and create your own recipe!!</p>
+                    <div>Complete this form and create your own recipe!!</div>
                     <form onSubmit={e => handleSubmit(e)}>
                         <div className={s.inputs}>
                             <label className={s.label}>Name:</label>
@@ -152,7 +156,9 @@ function FormRecipe() {
                             }
                             {
                                 input.diets.map(d => (
-                                    <li>{d}</li>
+                                    <li>
+                                        {d} <button onClick={() => handleDeleteDiet(d)}>x</button>
+                                    </li>
                                 ))
                             }
                         </div>
@@ -167,14 +173,9 @@ function FormRecipe() {
                     </form>
                 </div>
                 
-                <div className={s.mosaico}>
-                    <img src={image} className={s.img} alt='img not found' />
-                    <img src={image2} className={s.img} alt='img not found' />
-                    <img src={image3} className={s.img} alt='img not found' />
-                    <img src={image4} className={s.img} alt='img not found' />
-                    <img src={image5} className={s.img} alt='img not found' />
-                    <img src={image6} className={s.img} alt='img not found' />
-                </div>
+                {/* <div className={s.fondo}>
+                            asa
+                </div> */}
                 
             </div>
             
