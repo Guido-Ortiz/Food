@@ -49,7 +49,7 @@ function Recipes({ recipes }) {
 
     if (recipes.length === 0 && allRecipes.length > 0) {
         return(
-            <div>
+            <div className={s.matches}>
                 <p>Sorry! No matches found...</p>
             </div>
         )

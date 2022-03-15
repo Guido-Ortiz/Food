@@ -52,23 +52,26 @@ function Detail() {
                             <img src={detail.image} alt='img not found' className={s.img} />
 
                             <div className={s.items}>
-                                <div className={s.description}>Score: {detail.score}</div>
-                                <div className={s.description}>Health Score: {detail.healthScore}</div>
-                                <div className={`${s.diets} ${s.description}`}>Diets: {
-                                    detail.diets.map(d => {
-                                        return (
-                                            <div className={s.list}> {d.name} - </div>
-                                        )
-                                    })
-                                }
+                                <div className={s.scores}>
+                                    <span className={s.number}>Score: </span>
+                                    {detail.score}
+                                </div>
+                                <div className={s.scores}>
+                                    <span className={s.number}>Health Score: </span>
+                                    {detail.healthScore}
+                                </div>
+                                <div className={`${s.diets} ${s.scores}`}>
+                                <span className={s.number}>Diets: </span>
+                                    {
+                                        detail.diets.map(d => {
+                                            return (
+                                                <div className={`${s.list}`}> {d.name} - </div>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
 
                     </div>
                 ) : <div>

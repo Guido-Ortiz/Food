@@ -3,7 +3,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    /* padding: 10px; */
-    /* background-color: #f4f6f4; */
     background-color: white;
+}
+
+.matches{
+    text-align: center;
+    margin-top: 50px;
 }
