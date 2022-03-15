@@ -6,7 +6,6 @@ body{
 .fondo{
     background-color: #e9eef2;
     height: 100vh;
-    /* height: 650px; */
     background-image: url('./assets/fondo1.jpg');
     background-position: center center;
     background-repeat: no-repeat;
@@ -42,8 +41,24 @@ body{
     background-color: #40ba37;
     margin-left: 30%;
     margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
 }
 
+.btn:before {
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 1s ease;
+}
+
+.btn:hover:before {
+  width: 100%;
+}
 
 .flex{
     position: absolute;

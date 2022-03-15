@@ -42,7 +42,7 @@ function Select({ setCurrentPage }) {
             <div className={s.filters}>
                 <div className={s.singleSelect}>
                     <label className={s.label}>Origin: </label>
-                    <select onChange={e => handleOrigin(e)}>
+                    <select className={s.selectOption} onChange={e => handleOrigin(e)}>
                         <option className={s.option} value='all'>All</option>
                         <option value='api'>API</option>
                         <option value='db'>DB</option>
@@ -51,7 +51,7 @@ function Select({ setCurrentPage }) {
 
                 <div className={s.singleSelect}>
                     <label className={s.label}>Diets: </label>
-                    <select onChange={e => handleDiets(e)}>
+                    <select className={s.selectOption} onChange={e => handleDiets(e)}>
                         <option value='all'>All</option>
                         {   
                             diets.map(d => (
@@ -65,7 +65,7 @@ function Select({ setCurrentPage }) {
             <div className={s.filters}>
                 <div className={s.singleSelect}>
                     <label className={s.label}>Score: </label>
-                    <select onChange={e => handleScore(e)}>
+                    <select className={s.selectOption} onChange={e => handleScore(e)}>
                         <option value='none'>None</option>
                         <option value='score_des'>++</option>
                         <option value='score_asc'>--</option>
@@ -74,7 +74,7 @@ function Select({ setCurrentPage }) {
 
                 <div className={s.singleSelect}>
                     <label className={s.label}>Name: </label>
-                    <select onChange={e => handleName(e)}>
+                    <select className={s.selectOption} onChange={e => handleName(e)}>
                         <option value='none'>None</option>
                         <option value='az'>A-Z</option>
                         <option value='za'>Z-A</option>
