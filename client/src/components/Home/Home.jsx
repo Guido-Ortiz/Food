@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Pagination from '../Pagination/Pagination';
 import Recipes from '../Recipes/Recipes';
@@ -31,18 +30,18 @@ function Home() {
                 <div>
                     <Navbar setCurrentPage={setCurrentPage} />
                 </div>
-                
-                <Recipes recipes={currentRecipes}/>
+
+                <Recipes recipes={currentRecipes} />
 
                 <div>
                     <Pagination recipesPerPage={recipesPerPage}
-                                recipes={recipes.length}
-                                paginate={paginate}/>
+                        recipes={recipes.length}
+                        paginate={paginate} />
+                </div>
+
             </div>
-            
         </div>
-        </div>
-        
+
     );
 }
 

@@ -6,6 +6,7 @@ const { API_KEY, API_KEY_1, API_KEY_2 } = process.env;
 const router = Router();
 
 router.post('/', async (req, res) => {
+    
     const { name, summary, score, healthScore, analyzedInstructions, image, diets, createdInDb } = req.body
 
     const newRecipe = await Recipe.create({

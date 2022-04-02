@@ -13,6 +13,7 @@ function FormRecipe() {
 
     const dispatch = useDispatch()
     const diets = useSelector(state => state.diets)
+    const allRecipes = useSelector(state => state.allRecipes)
 
     const [input, setInput] = useState({
         name: '',
@@ -54,44 +55,84 @@ function FormRecipe() {
         }))
     }
 
+
     function handleDiets(e) {
-        if (!input.diets.includes(e.target.value)) {
+
+        if(!input.diets.includes(e.target.value)){
             setInput({
                 ...input,
                 diets: [...input.diets, e.target.value]
-
+    
             })
             setErrors(validate({
                 ...input,
                 [e.target.name]: e.target.value
-            }))
+            })) 
         }
-        else {
-            alert('Diet already selected!')
+        else{
+            alert('diet already selected!')
         }
+        // setInput({
+        //     ...input,
+        //     diets: [...input.diets, e.target.value]
+
+        // })
+        // setErrors(validate({
+        //     ...input,
+        //     [e.target.name]: e.target.value
+        // }))
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(createRecipe(input))
-        alert('Recipe created !!')
-        setInput({
-            name: '',
-            summary: '',
-            score: '',
-            healthScore: '',
-            analyzedInstructions: [],
-            diets: [],
-            image: '',
-        })
-        history.push('/home')
-    }
-
-    const handleDeleteDiet = diet => {
-        setInput({
-            ...input,
-            diets: input.diets.filter(d => d !== diet)
-        })
+        // if(allRecipes.name.includes(input.name)){
+        //     return alert('nombre ya seleccionado')
+        // }
+        // else{
+        //     dispatch(createRecipe(input))
+        //     alert('Recipe created !!')
+        //     setInput({
+        //         name: '',
+        //         summary: '',
+        //         score: '',
+        //         healthScore: '',
+        //         analyzedInstructions: [],
+        //         diets: [],
+        //         image: '',
+        //     })
+        //     history.push('/home')
+        // }
+        const rec = allRecipes.find(r => r.name === input.name)
+        console.log(rec)
+        if(rec){
+            return alert('nombre ya seleccionado')
+        }
+        else{
+            dispatch(createRecipe(input))
+            alert('Recipe created !!')
+            setInput({
+                name: '',
+                summary: '',
+                score: '',
+                healthScore: '',
+                analyzedInstructions: [],
+                diets: [],
+                image: '',
+            })
+            history.push('/home')
+        }
+        // dispatch(createRecipe(input))
+        // alert('Recipe created !!')
+        // setInput({
+        //     name: '',
+        //     summary: '',
+        //     score: '',
+        //     healthScore: '',
+        //     analyzedInstructions: [],
+        //     diets: [],
+        //     image: '',
+        // })
+        // history.push('/home')
     }
 
     return (
@@ -124,7 +165,7 @@ function FormRecipe() {
                         errors.score && <div className={s.errors}>{errors.score}</div>
                     }
                 </div>
-                
+
                 <div className={s.flex}>
                     <input type='number' value={input.healthScore} name='healthScore' onChange={e => handleChange(e)} className={s.input} placeholder='Insert your recipe health score...' />
                     {
@@ -155,7 +196,7 @@ function FormRecipe() {
                     {
                         input.diets.map(d => (
                             <li className={s.listDiets}>
-                                {d} <button onClick={() => handleDeleteDiet(d)}>x</button>
+                                {d}
                             </li>
                         ))
                     }

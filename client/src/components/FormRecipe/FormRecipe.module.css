@@ -126,6 +126,7 @@
 
 .listDiets{
     list-style: none;
+    text-transform: capitalize;
     display: flex;
     flex-direction: row;
     margin-right: 15px;
